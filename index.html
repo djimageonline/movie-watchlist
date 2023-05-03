@@ -11,16 +11,22 @@
   <header class="hero" id="hero">
     <h1>Find your film</h1>
     <h5>My Watchlist</h5>
-    <form>
+    <form id="form-submit" class="form-submit">
       <input type="text" name="search-bar" id="search-bar" placeholder="Search Movie">
       <button class="search-btn" id="search-btn">Search</button>
     </form>
   </header>
+
   <main>
+    <div class="movies-container" id="movies-container">
+      <div class="movie-list" id="movie-list"></div>
+
+      <!-- <img class="film-icon hidden" src="img/Icon.png"></img> -->
+    </div>
   </main>
   <footer>
 
   </footer>
+  <script src="index.js" type="module"></script>
 </body>
-<style src="index.js" type="module"></style>
 </html>

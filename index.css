@@ -3,10 +3,12 @@ body {
   color: white;
 }
 
+/* Hero Section */
+
 .hero {
   position: relative;
   background: no-repeat center;
-  background-image: linear-gradient(rgba(0, 0, 0, .627),rgba(0, 0, 0, 0.6)), url("img/cinema.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, .827),rgba(0, 0, 0, 0.8)), url("img/cinema.jpg");
   background-size: cover;  
   width: 100%;
   height: 250px;
@@ -17,24 +19,27 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 h5 {
   margin-top: 30px;
-  font-size: 1em;
+  font-size: .8em;
 }
+
+/* Form - Search */
 
 form {
   position: absolute;
   display: flex;
   flex-direction: row;
-  top: 240px;
+  top: 230px;
+  z-index: 1;
 }
 
 #search-bar {
-  width: 300px;
-  padding: .5em;
+  width: 200px;
+  padding: 1em;
   background-color: #363030 ;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -43,7 +48,7 @@ form {
 #search-btn {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-  padding: .6em 2em;
+  padding: 1em 2em;
   background-color: #4B4B4B ;
 }
 
@@ -53,10 +58,31 @@ form {
   color: white;
 }
 
+/* Main Container for Movies */
+
 
 main {
   margin: 0;
-  background-color: #121212;
   width: 100%;
   height: 100vh;
+  background-color: #121212;
 }
+.movies-container {
+  position: relative;
+  padding: 50px 20px;
+  background-color: #121212;
+}
+
+.film-icon {
+  position: absolute;
+  top: 250px;
+  left: 150px;
+}
+
+.poster {
+  width: 140px;
+}
+
+/* .hidden {
+  display: none;
+} */
