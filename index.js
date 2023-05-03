@@ -13,6 +13,7 @@ function getMovieBySearch() {
   fetch(`http://www.omdbapi.com/?apikey=${api}&s=${searchBarValue}`)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data.Search);
       for (let items of data.Search) {
         getMovieByTitle(items);
       }
@@ -37,10 +38,14 @@ function renderMovieHtml(movieData) {
   <div class="movie">
     <h4>${Title}</h4>
     <img class="poster" src=${Poster}>
-    <p>${Year}</p>
-    <p>${Runtime}</p>
-    <p>${Actors}</p>  
+    <div class="movie-detail1">
+      <p>${Year}</p>
+      <p>${Runtime}</p>
+      <p>${Genre}</p>
+    </div>
+    <p>${Actors}</p>
     <p>${Plot}</p>
+    <hr color="#4B4B4B">
   </div>
   `;
 
