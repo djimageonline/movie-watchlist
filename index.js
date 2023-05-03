@@ -1,4 +1,4 @@
-let api = "2da484f0";
+let api = "";
 
 const movieList = document.getElementById("movie-list");
 const formSubmit = document.getElementById("form-submit");
