@@ -69,7 +69,7 @@ main {
 }
 .movies-container {
   position: relative;
-  padding: 50px 20px;
+  padding: 50px 10px;
   background-color: #121212;
 }
 
@@ -83,27 +83,32 @@ main {
 
 .poster,
 .title,
-.movie-detail1,
-.plot,
-.actors,
-.genre {
-  margin: 0;
+.movie-detail1 {
+  margin: .3em;
+}
+
+.plot {
+  margin-top: -1em;
 }
 
 .movie {
   display: grid;
-  grid-template-columns: 10em 17em;
-  grid-template-areas: 
-  "poster title"
-  "poster movie-detail1"
-  "poster genre"
-  "poster actors"
-  "poster plot";
+  grid-template-columns: 12.5em 9.5em;
+  grid-template-areas:
+  "title title"
+  "poster movie-detail1" 
+  ". movie-detail1"
+  "plot plot";
+  gap: 12px;
+}
+
+.genre, .actors {
+  margin: 0;
 }
 
 .poster {
   grid-area: poster;
-  width: 140px;
+  width: 190px;
 }
 
 .title{
@@ -113,25 +118,23 @@ main {
 .movie-detail1 {
   grid-area: movie-detail1;
   display: flex;
-  flex-direction: row;
-  gap: 25px;
+  flex-direction: column;
+  gap:  .8em;
   
-}
-
-.genre {
-  grid-area: genre;
-}
-
-.actors{
-  grid-area: actors;
 }
 
 .plot{
   grid-area: plot;
+  padding-top: 1em;
 }
 
 .year, .runtime, .ratings, .watchlist {
   margin:0;
+}
+
+.line {
+  margin: 1em 0;
+  width: 23em;
 }
 
 

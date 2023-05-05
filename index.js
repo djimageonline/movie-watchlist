@@ -40,19 +40,19 @@ function renderMovieHtml(movieData) {
   if (movieData.Response !== "False") {
     movieHtml = `
   <div class="movie">
-    <h3 class="title">${Title}</h3>
+    <h2 class="title">${Title}</h2>
     <img class="poster" src=${Poster}>
     <div class="movie-detail1">
       <p class="year">${Year}</p>
       <p class="runtime">${Runtime}</p>
-      <p class="ratings">${Ratings[0].Value}</p>
-      <p class="watchlist">Watchlist</p>
+      <p class="ratings">⭐️ ${Ratings[0].Value}</p>
+      <p class="genre">${Genre}</p>
+      <p class="actors">${Actors}</p>
+      <p class="watchlist">➕ Watchlist</p>
     </div>
-    <p class="genre">${Genre}</p>
-    <p class="actors">${Actors}</p>
     <p class="plot">${Plot}</p>
   </div>
-  <hr color="#4B4B4B">
+  <hr color="#4B4B4B" class="line">
   `;
 
     movieList.innerHTML += movieHtml;
