@@ -34,23 +34,25 @@ function getMovieByTitle(data) {
 }
 
 function renderMovieHtml(movieData) {
-  let { Title, Actors, Year, Rated, Released, Runtime, Genre, Plot, Poster } = movieData;
+  let { Title, Actors, Year, Rated, Ratings, Released, Runtime, Genre, Plot, Poster } = movieData;
   let movieHtml = "";
 
   if (movieData.Response !== "False") {
     movieHtml = `
   <div class="movie">
-    <h3>${Title}</h3>
+    <h3 class="title">${Title}</h3>
     <img class="poster" src=${Poster}>
     <div class="movie-detail1">
-      <p>${Year}</p>
-      <p>${Runtime}</p>
-      <p>${Genre}</p>
+      <p class="year">${Year}</p>
+      <p class="runtime">${Runtime}</p>
+      <p class="ratings">${Ratings[0].Value}</p>
+      <p class="watchlist">Watchlist</p>
     </div>
-    <p>${Actors}</p>
-    <p>${Plot}</p>
-    <hr color="#4B4B4B">
+    <p class="genre">${Genre}</p>
+    <p class="actors">${Actors}</p>
+    <p class="plot">${Plot}</p>
   </div>
+  <hr color="#4B4B4B">
   `;
 
     movieList.innerHTML += movieHtml;

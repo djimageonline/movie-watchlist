@@ -79,8 +79,59 @@ main {
   left: 150px;
 }
 
+/* Movie Row */
+
+.poster,
+.title,
+.movie-detail1,
+.plot,
+.actors,
+.genre {
+  margin: 0;
+}
+
+.movie {
+  display: grid;
+  grid-template-columns: 10em 17em;
+  grid-template-areas: 
+  "poster title"
+  "poster movie-detail1"
+  "poster genre"
+  "poster actors"
+  "poster plot";
+}
+
 .poster {
+  grid-area: poster;
   width: 140px;
+}
+
+.title{
+  grid-area: title;
+}
+
+.movie-detail1 {
+  grid-area: movie-detail1;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  
+}
+
+.genre {
+  grid-area: genre;
+}
+
+.actors{
+  grid-area: actors;
+}
+
+.plot{
+  grid-area: plot;
+}
+
+.year, .runtime, .ratings, .watchlist {
+  margin:0;
 }
 
 
