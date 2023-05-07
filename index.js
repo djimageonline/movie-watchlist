@@ -2,10 +2,12 @@ let api = "";
 
 const movieList = document.getElementById("movie-list");
 const formSubmit = document.getElementById("form-submit");
+let filmIcon = document.getElementById("film-icon");
 
 formSubmit.addEventListener("submit", getMovieBySearch);
 
 function getMovieBySearch() {
+  filmIcon.classList.add("hidden");
   movieList.innerHTML = "";
   event.preventDefault();
   let searchBarValue = document.getElementById("search-bar");
@@ -52,7 +54,6 @@ function renderMovieHtml(movieData) {
     </div>
     <p class="plot">${Plot}</p>
   </div>
-  <hr color="#4B4B4B" class="line">
   `;
 
     movieList.innerHTML += movieHtml;
