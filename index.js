@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+console.log(uuidv4);
 let api = "";
 
 const movieList = document.getElementById("movie-list");
@@ -5,6 +7,10 @@ const formSubmit = document.getElementById("form-submit");
 let filmIcon = document.getElementById("film-icon");
 
 formSubmit.addEventListener("submit", getMovieBySearch);
+
+document.addEventListener("click", function (e) {
+  console.log(e.target.dataset);
+});
 
 function getMovieBySearch() {
   filmIcon.classList.add("hidden");
@@ -15,12 +21,12 @@ function getMovieBySearch() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data.Response);
-      mapTest(data.Search);
+      mapMovies(data.Search);
       searchBarValue.value = "";
     });
 }
 
-function mapTest(data) {
+function mapMovies(data) {
   for (let items of data) {
     getMovieByTitle(items);
   }
@@ -50,7 +56,7 @@ function renderMovieHtml(movieData) {
       <p class="ratings">⭐️ ${Ratings[0].Value}</p>
       <p class="genre">${Genre}</p>
       <p class="actors">${Actors}</p>
-      <p class="watchlist">➕ Watchlist</p>
+      <p class="watchlist-btn" id="watchlist-btn" data-watchlist="">➕ Watchlist</p>
     </div>
     <p class="plot">${Plot}</p>
   </div>
@@ -58,4 +64,8 @@ function renderMovieHtml(movieData) {
 
     movieList.innerHTML += movieHtml;
   }
+}
+
+function handleWatchlistClick() {
+  console.log("watch click");
 }

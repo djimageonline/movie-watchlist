@@ -143,6 +143,15 @@ main {
   margin:0;
 }
 
+.watchlist-btn {
+  text-align: center;
+  padding: .5em;
+  max-width: 13em;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 5px;
+}
+
 .hidden {
   display: none;
 }
