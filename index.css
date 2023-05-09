@@ -134,6 +134,11 @@ main {
   
 }
 
+.year-runtime-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
 .plot{
   grid-area: plot;
   padding-top: 1em;
