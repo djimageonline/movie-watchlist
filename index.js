@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-let api = "";
+let api = "2da484f0";
 let watchlistArray = [];
 
 const movieList = document.getElementById("movie-list");
@@ -10,7 +10,6 @@ formSubmit.addEventListener("submit", getMovieBySearch);
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.watchlist) {
-    console.log("click event");
     handleWatchlistClick(e.target.dataset);
   }
 });
@@ -68,6 +67,7 @@ function renderMovieHtml(movieData) {
         data-year="${Year}"
         data-runtime="${Runtime}"
         data-ratings="${Ratings[0].Value}"
+        data-genre="${Genre}"
         data-actors="${Actors}"
         data-plot="${Plot}"
         "
@@ -84,16 +84,17 @@ function renderMovieHtml(movieData) {
 function handleWatchlistClick(movieData) {
   let tempMovieDetailObj = {};
   tempMovieDetailObj = {
-    id: `${movieData.watchlist}`,
-    title: `${movieData.title}`,
-    poster: `${movieData.poster}`,
-    year: `${movieData.year}`,
-    runtime: `${movieData.runtime}`,
-    ratings: `${movieData.ratings}`,
-    actors: `${movieData.actors}`,
-    plot: `${movieData.plot}`,
+    id: movieData.watchlist,
+    title: movieData.title,
+    poster: movieData.poster,
+    year: movieData.year,
+    runtime: movieData.runtime,
+    ratings: movieData.ratings,
+    actors: movieData.actors,
+    genre: movieData.genre,
+    plot: movieData.plot,
   };
 
   watchlistArray.push(tempMovieDetailObj);
-  console.log(watchlistArray);
+  localStorage.setItem("movieList", JSON.stringify(watchlistArray));
 }

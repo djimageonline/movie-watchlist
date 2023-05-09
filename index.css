@@ -84,7 +84,7 @@ main {
 }
 
 
-.film-icon {
+.film-icon, .message {
   margin: 8em auto;
   }
 
@@ -148,7 +148,7 @@ main {
   margin:0;
 }
 
-.watchlist-btn {
+.watchlist-btn, .remove-btn {
   text-align: center;
   padding: .5em;
   max-width: 13em;
