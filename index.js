@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 let api = "2da484f0";
-let watchlistArray = [];
+let watchlistArray = JSON.parse(localStorage.getItem("movieList")) || [];
 
 const movieList = document.getElementById("movie-list");
 const formSubmit = document.getElementById("form-submit");
@@ -99,6 +99,6 @@ function handleWatchlistClick(movieData) {
     plot: movieData.plot,
   };
 
-  watchlistArray.push(tempMovieDetailObj);
+  watchlistArray.unshift(tempMovieDetailObj);
   localStorage.setItem("movieList", JSON.stringify(watchlistArray));
 }

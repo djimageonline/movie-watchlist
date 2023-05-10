@@ -1,4 +1,4 @@
-let watchlistArray = JSON.parse(localStorage.getItem("movieList"));
+const watchlistArray = JSON.parse(localStorage.getItem("movieList"));
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.watchlist) {
