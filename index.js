@@ -19,7 +19,7 @@ function getMovieBySearch() {
   movieList.innerHTML = "";
   event.preventDefault();
   let searchBarValue = document.getElementById("search-bar");
-  fetch(`http://www.omdbapi.com/?apikey=${api}&s=${searchBarValue.value}`)
+  fetch(`https://www.omdbapi.com/?apikey=${api}&s=${searchBarValue.value}`)
     .then((response) => response.json())
     .then((data) => {
       if (data.Response === "False") {
@@ -39,7 +39,7 @@ function mapMovies(data) {
 }
 
 function getMovieByTitle(data) {
-  fetch(`http://www.omdbapi.com/?apikey=${api}&t=${data.Title}`)
+  fetch(`https://www.omdbapi.com/?apikey=${api}&t=${data.Title}`)
     .then((response) => response.json())
     .then((movieData) => {
       renderMovieHtml(movieData);
