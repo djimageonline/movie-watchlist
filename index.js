@@ -22,8 +22,13 @@ function getMovieBySearch() {
   fetch(`http://www.omdbapi.com/?apikey=${api}&s=${searchBarValue.value}`)
     .then((response) => response.json())
     .then((data) => {
-      mapMovies(data.Search);
-      searchBarValue.value = "";
+      if (data.Response === "False") {
+        movieList.innerHTML = `<p class="message">Unable to find what you are looking for.  Try another search!</p>`;
+        searchBarValue.value = "";
+      } else {
+        mapMovies(data.Search);
+        searchBarValue.value = "";
+      }
     });
 }
 
@@ -47,36 +52,35 @@ function renderMovieHtml(movieData) {
 
   if (movieData.Response !== "False") {
     movieHtml = `
-  <div class="movie">
-    <h2 class="title">${Title}</h2>
-    <img class="poster" src=${Poster}>
-    <div class="movie-detail1">
-    <div class="year-runtime-rating">
-      <p class="year">${Year}</p>
-      <p class="runtime">${Runtime}</p>
-      <p class="ratings">⭐️ ${Ratings[0].Value}</p>
-    </div>
-      <p class="genre">${Genre}</p>
-      <p class="actors">${Actors}</p>
-      <p 
-        class="watchlist-btn" 
-        id="watchlist-btn" 
-        data-watchlist="${uuidv4()}"
-        data-title="${Title}"
-        data-poster="${Poster}"
-        data-year="${Year}"
-        data-runtime="${Runtime}"
-        data-ratings="${Ratings[0].Value}"
-        data-genre="${Genre}"
-        data-actors="${Actors}"
-        data-plot="${Plot}"
-        "
-      >➕ Watchlist</p>
-    </div>
-    <p class="plot">${Plot}</p>
-  </div>
+      <div class="movie">
+        <h2 class="title">${Title}</h2>
+        <img class="poster" src=${Poster}>
+        <div class="movie-detail1">
+        <div class="year-runtime-rating">
+          <p class="year">${Year}</p>
+          <p class="runtime">${Runtime}</p>
+          <p class="ratings">⭐️ ${Ratings[0].Value}</p>
+        </div>
+          <p class="genre">${Genre}</p>
+          <p class="actors">${Actors}</p>
+          <p 
+            class="watchlist-btn" 
+            id="watchlist-btn" 
+            data-watchlist="${uuidv4()}"
+            data-title="${Title}"
+            data-poster="${Poster}"
+            data-year="${Year}"
+            data-runtime="${Runtime}"
+            data-ratings="${Ratings[0].Value}"
+            data-genre="${Genre}"
+            data-actors="${Actors}"
+            data-plot="${Plot}"
+            "
+          >➕ Watchlist</p>
+        </div>
+        <p class="plot">${Plot}</p>
+      </div>
   `;
-
     movieList.innerHTML += movieHtml;
   }
 }

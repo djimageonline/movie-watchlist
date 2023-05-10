@@ -1,5 +1,4 @@
 let watchlistArray = JSON.parse(localStorage.getItem("movieList"));
-console.log(watchlistArray);
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.watchlist) {
@@ -25,7 +24,8 @@ function renderWatchListMovies() {
   if (watchlistArray.length < 1) {
     document.getElementById(
       "movie-list"
-    ).innerHTML = `<h4 class="message" id="message">Your watchlist is looking a little empty...</h4>`;
+    ).innerHTML = `<h4 class="message" id="message">Your watchlist is looking a little empty...<br><a class="message-watchlist" href="index.html">Go search some movies! 🍿🎬</a></h4>
+  `;
   } else {
     for (let movie of watchlistArray) {
       movieHtml += `
